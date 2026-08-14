@@ -40,11 +40,20 @@
     <p>When I am not studying, I enjoy reading, particularly novels by authors such as Jeffrey Archer and David Baldacci. I also enjoy coding, especially working on random projects and tasks, playing games, and listening to music.</p>
     <p>When it comes to sports, I occasionally play golf, although I do so non-competitively. I also enjoy spending time outdoors, whether that is walking my dogs, hiking, or simply going for a walk.</p>
 
-    <div class="hobby-photos">
-      <img src="images/Hiking.png" alt="Marshall hiking outdoors">
-      <img src="images/golf.png" alt="Marshall playing golf">
-      <img src="images/walking_dogs.png" alt="Marshall walking his dogs">
-    </div>
+    <div class="hobby-slideshow">
+  <img src="images/hiking.jpg" alt="Marshall hiking outdoors">
+  <img src="images/golf.jpg" alt="Marshall playing golf">
+  <img src="images/dogs.jpg" alt="Marshall walking his dogs">
+
+  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="next" onclick="changeSlide(1)">&#10095;</button>
+
+  <div class="slide-dots">
+    <span onclick="currentSlide(1)"></span>
+    <span onclick="currentSlide(2)"></span>
+    <span onclick="currentSlide(3)"></span>
+  </div>
+</div>
   </section>
 
 </main>
