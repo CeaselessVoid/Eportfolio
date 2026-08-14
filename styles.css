@@ -1,8 +1,13 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  color: #222;
-  background: #fff;
+  color: #e8f7ff;
+  background-color: #020812;
+  background-image:
+    linear-gradient(rgba(0, 150, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 150, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(0, 140, 255, 0.14), transparent 45%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
   line-height: 1.6;
 }
 
@@ -12,26 +17,31 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  border-bottom: 1px solid #ddd;
+  background: rgba(2, 8, 18, 0.85);
+  border-bottom: 1px solid rgba(0, 174, 255, 0.3);
+  box-shadow: 0 2px 20px rgba(0, 140, 255, 0.08);
   flex-wrap: wrap;
 }
 
 .site-name {
   font-weight: 700;
   font-size: 1.1rem;
+  color: #e8f7ff;
 }
 
 .site-header nav a {
   margin-left: 20px;
   text-decoration: none;
-  color: #444;
+  color: #a9c8d9;
   font-size: 0.95rem;
+  transition: 0.3s ease;
 }
 
 .site-header nav a.active,
 .site-header nav a:hover {
-  color: #1e4c8a;
+  color: #00bfff;
   font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
 }
 
 /* ---- Main content width ---- */
@@ -55,27 +65,34 @@ main {
   height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #1e4c8a;
+  border: 3px solid #00bfff;
+  box-shadow:
+    0 0 15px rgba(0, 191, 255, 0.35),
+    0 0 35px rgba(0, 140, 255, 0.15);
 }
 
 .hero-text h1 {
   margin: 0 0 6px;
   font-size: 2rem;
+  color: #f0faff;
 }
 
 .tagline {
   margin: 0;
-  color: #1e4c8a;
+  color: #00bfff;
   font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.35);
 }
 
 /* ---- Text sections ---- */
 h2 {
   font-size: 1.4rem;
   margin-bottom: 16px;
-  border-bottom: 2px solid #1e4c8a;
+  color: #66d9ff;
+  border-bottom: 2px solid #00bfff;
   display: inline-block;
   padding-bottom: 4px;
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.25);
 }
 
 .about-text, .hobbies {
@@ -83,7 +100,7 @@ h2 {
 }
 
 p {
-  color: #333;
+  color: #c5d8e3;
   margin: 0 0 16px;
 }
 
@@ -100,6 +117,14 @@ p {
   height: 180px;
   object-fit: cover;
   border-radius: 6px;
+  border: 1px solid rgba(0, 174, 255, 0.25);
+  transition: 0.3s ease;
+}
+
+.hobby-photos img:hover {
+  transform: translateY(-3px);
+  border-color: #00bfff;
+  box-shadow: 0 0 18px rgba(0, 191, 255, 0.25);
 }
 
 /* ---- Mobile ---- */
@@ -108,9 +133,11 @@ p {
     flex-direction: column;
     text-align: center;
   }
+
   .hobby-photos {
     grid-template-columns: 1fr;
   }
+
   .site-header {
     flex-direction: column;
     align-items: flex-start;
