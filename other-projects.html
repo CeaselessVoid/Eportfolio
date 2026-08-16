@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Other Work — Marshall Ngari</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <span class="site-name">Marshall Ngari</span>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="cv.html">CV</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+</header>
+
+
+<main class="other-work-page">
+
+  <a href="projects.html" class="back-to-projects">
+    ← Back to Projects
+  </a>
+
+
+  <!-- ================================================= -->
+  <!-- STM32F4 AUDIO WAVE PROJECT -->
+  <!-- ================================================= -->
+
+  <section class="other-project audio-project">
+
+    <div class="other-project-content">
+
+      <h1>STM32F4 Audio Wave Project</h1>
+
+      <p>
+        This project involved sampling different signals, creating
+        lookup tables, and programming an STM32F4 microcontroller
+        to recall the respective waveforms.
+      </p>
+
+      <p>
+        The generated waveform was represented using a flashing LED
+        on the development board and could also be observed as a
+        waveform when the board was connected to an oscilloscope.
+      </p>
+
+    </div>
+
+
+    <div class="audio-project-media">
+
+      <!-- Image slideshow -->
+
+      <div class="other-gallery">
+
+        <img src="images/uboard.png"
+             alt="STM32F4 audio wave project"
+             class="other-gallery-image active">
+        <img src="images/sine_wave.png"
+             alt="STM32F4 audio wave project"
+             class="other-gallery-image active">
+        <img src="images/saw_wave.png"
+             alt="STM32F4 audio wave project"
+             class="other-gallery-image active">
+        <img src="images/tri_wave.png"
+             alt="STM32F4 audio wave project"
+             class="other-gallery-image active">
+        <img src="images/drum_wave.png"
+             alt="STM32F4 waveform project"
+             class="other-gallery-image">
+
+        <img src="images/piano_wave.png"
+             alt="STM32F4 development board"
+             class="other-gallery-image">
+
+      </div>
+
+
+      <!-- Video -->
+
+      <div class="other-project-video">
+
+        <video controls>
+          <source src="videos/STM_RUN.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================================================= -->
+  <!-- WATER LEVEL SENSOR -->
+  <!-- ================================================= -->
+
+  <section class="other-project water-level-project">
+
+    <div class="other-project-content">
+
+      <h1>Water Level Sensor</h1>
+
+      <p>
+        This project involved designing and simulating a water
+        level sensor using logic gate chips on a breadboard.
+        The system was designed as a smart alarm that would
+        trigger a sequence of LEDs and buzzers depending on
+        the water level in a tank.
+      </p>
+
+      <p>
+        Resistors were used to simulate different water levels
+        during the prototype stage. In a practical implementation,
+        a pressure transducer would be used to measure the actual
+        water level.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================================================= -->
+  <!-- KICAD / PCB DESIGN -->
+  <!-- ================================================= -->
+
+  <section class="other-project pcb-project">
+
+    <div class="pcb-gallery">
+
+      <img src="images/Final_PCB_Schematic.png"
+           alt="KiCad PCB design"
+           class="pcb-gallery-image active">
+
+      <img src="images/PCB_Back_KICAD.png"
+           alt="PCB design"
+           class="pcb-gallery-image">
+
+      <img src="images/PCB_Front_KICAD.png"
+           alt="PCB layout"
+           class="pcb-gallery-image">
+
+      <img src="images/PCB_3D.png"
+           alt="PCB design project"
+           class="pcb-gallery-image">
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   AUDIO PROJECT IMAGE SLIDESHOW
+   ===================================================== */
+
+let audioImage = 0;
+
+const audioImages =
+  document.querySelectorAll(".other-gallery-image");
+
+const audioDisplayTime = 6000;
+
+function showAudioImage(index) {
+
+  audioImages.forEach(image => {
+    image.classList.remove("active");
+  });
+
+  audioImage = index;
+
+  if (audioImage >= audioImages.length) {
+    audioImage = 0;
+  }
+
+  audioImages[audioImage].classList.add("active");
+}
+
+
+setInterval(() => {
+
+  showAudioImage(audioImage + 1);
+
+}, audioDisplayTime);
+
+
+
+/* =====================================================
+   PCB IMAGE SLIDESHOW
+   ===================================================== */
+
+let pcbImage = 0;
+
+const pcbImages =
+  document.querySelectorAll(".pcb-gallery-image");
+
+const pcbDisplayTime = 6000;
+
+function showPCBImage(index) {
+
+  pcbImages.forEach(image => {
+    image.classList.remove("active");
+  });
+
+  pcbImage = index;
+
+  if (pcbImage >= pcbImages.length) {
+    pcbImage = 0;
+  }
+
+  pcbImages[pcbImage].classList.add("active");
+}
+
+
+setInterval(() => {
+
+  showPCBImage(pcbImage + 1);
+
+}, pcbDisplayTime);
+
+</script>
+
+</body>
+
+</html>
