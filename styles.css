@@ -783,6 +783,19 @@ p {
   opacity: 1;
 }
 
+.pcb-content {
+  width: 100%;
+  max-width: 850px;
+}
+
+.pcb-content h1 {
+  color: #66d9ff;
+  margin-top: 0;
+  margin-bottom: 25px;
+
+  text-shadow:
+    0 0 8px rgba(0, 191, 255, 0.25);
+}
 
 
 /* =====================================================
