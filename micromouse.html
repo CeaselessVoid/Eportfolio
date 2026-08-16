@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Micromouse — Marshall Ngari</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <span class="site-name">Marshall Ngari</span>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="cv.html">CV</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+  <a href="projects.html" class="back-to-projects">
+    ← Back to Projects
+  </a>
+
+
+  <section class="project-detail">
+
+    <!-- Image side -->
+    <div class="project-gallery">
+
+      <div class="gallery-slides">
+
+        <img src="images/Sim_mouse.png"
+             alt="Micromouse"
+             class="gallery-image active">
+
+        <img src="images/mouse.png"
+             alt="Micromouse assembly"
+             class="gallery-image">
+
+        <img src="images/mouse_simulink.png"
+             alt="Micromouse maze solving"
+             class="gallery-image">
+
+      </div>
+
+
+      <div class="gallery-controls">
+
+        <button onclick="changeImage(-1)">&#10094;</button>
+
+        <div class="gallery-dots">
+          <span onclick="showImage(0)"></span>
+          <span onclick="showImage(1)"></span>
+          <span onclick="showImage(2)"></span>
+        </div>
+
+        <button onclick="changeImage(1)">&#10095;</button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Text side -->
+    <div class="project-information">
+
+      <h1>Micromouse</h1>
+
+      <p>
+        This project involved the assembly of a Micromouse, the
+        simulation and design of a maze-solving algorithm in
+        MATLAB Simulink, and the physical deployment of the
+        algorithm on the assembled mouse to solve a random maze.
+      </p>
+
+      <p>
+        The simulated mouse was used in tandem with the physical
+        mouse to configure and refine the sensors. The algorithm
+        was developed using a series of Stateflow blocks that
+        determined the actions to be taken based on sensor
+        readings.
+      </p>
+
+      <p>
+        Wheel encoders were used to track distance, while
+        time-of-flight sensors were used to make critical
+        decisions about the next course of action. The sensor
+        readings were filtered and adjusted to improve the
+        mouse's ability to complete the task.
+      </p>
+
+      <p>
+        The final result was a Micromouse capable of solving a
+        maze. Further improvements could be made to increase the
+        speed at which the maze is solved.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+let currentImage = 0;
+
+const images = document.querySelectorAll(".gallery-image");
+const dots = document.querySelectorAll(".gallery-dots span");
+
+let imageTimer;
+
+const displayTime = 6000;
+
+
+function showImage(index) {
+
+  clearTimeout(imageTimer);
+
+  images.forEach(image => {
+    image.classList.remove("active");
+  });
+
+  dots.forEach(dot => {
+    dot.classList.remove("active");
+  });
+
+  currentImage = index;
+
+  if (currentImage >= images.length) {
+    currentImage = 0;
+  }
+
+  if (currentImage < 0) {
+    currentImage = images.length - 1;
+  }
+
+  images[currentImage].classList.add("active");
+  dots[currentImage].classList.add("active");
+
+  restartTimer();
+}
+
+
+function changeImage(direction) {
+
+  let nextImage = currentImage + direction;
+
+  if (nextImage >= images.length) {
+    nextImage = 0;
+  }
+
+  if (nextImage < 0) {
+    nextImage = images.length - 1;
+  }
+
+  showImage(nextImage);
+}
+
+
+function restartTimer() {
+
+  clearInterval(imageTimer);
+
+  imageTimer = setInterval(() => {
+
+    let nextImage = currentImage + 1;
+
+    if (nextImage >= images.length) {
+      nextImage = 0;
+    }
+
+    showImage(nextImage);
+
+  }, displayTime);
+
+}
+
+
+/* Start slideshow */
+
+images[0].classList.add("active");
+dots[0].classList.add("active");
+
+restartTimer();
+
+</script>
+
+</body>
+
+</html>
