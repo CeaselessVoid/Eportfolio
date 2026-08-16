@@ -358,7 +358,45 @@ p {
 .other-work h1 {
   margin-bottom: 20px;
 }
+/* ---- Project navigation arrows ---- */
 
+.project-prev,
+.project-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 191, 255, 0.4);
+
+  background: rgba(2, 8, 18, 0.75);
+  color: #00bfff;
+
+  font-size: 24px;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.project-prev {
+  left: 10px;
+}
+
+.project-next {
+  right: 10px;
+}
+
+.project-prev:hover,
+.project-next:hover {
+  background: rgba(0, 191, 255, 0.15);
+  border-color: #00bfff;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+  color: #66d9ff;
+}
 
 /* ---- Projects Mobile ---- */
 
