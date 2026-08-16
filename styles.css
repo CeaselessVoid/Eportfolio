@@ -436,16 +436,19 @@ p {
 
 .project-detail {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 50px;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
   align-items: center;
 }
 
-
-/* ---- Project Gallery ---- */
-
-.project-gallery {
+.gallery-slides {
+  position: relative;
   width: 100%;
+  height: 500px;
+  background: #020812;
+  border: 1px solid rgba(0, 174, 255, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .gallery-slides {
