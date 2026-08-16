@@ -199,3 +199,76 @@ p {
     gap: 10px;
   }
 }
+/* ---- CV Page ---- */
+
+.cv-header {
+  margin-bottom: 60px;
+}
+
+.cv-header h1 {
+  margin-bottom: 5px;
+}
+
+.cv-subtitle {
+  color: #a9c8d9;
+  margin-bottom: 25px;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #020812;
+  background: #00bfff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.25);
+  transition: 0.3s ease;
+}
+
+.download-button:hover {
+  background: #66d9ff;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.cv-section {
+  margin-bottom: 55px;
+}
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 30px;
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(0, 174, 255, 0.15);
+}
+
+.cv-date {
+  color: #00bfff;
+  font-weight: 600;
+}
+
+.cv-details h3 {
+  margin: 0 0 5px;
+  color: #e8f7ff;
+}
+
+.cv-details p {
+  margin-bottom: 0;
+}
+
+.cv-role {
+  color: #66d9ff !important;
+  font-weight: 500;
+}
+
+
+/* ---- CV Mobile ---- */
+
+@media (max-width: 600px) {
+  .cv-entry {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
