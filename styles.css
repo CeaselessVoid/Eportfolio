@@ -286,3 +286,94 @@ p {
     gap: 8px;
   }
 }
+/* ---- Projects ---- */
+
+.projects {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+}
+
+.project-slide {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease-in-out;
+}
+
+.project-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-slide.fade-out {
+  opacity: 0;
+}
+
+.project-slide h1 {
+  margin: 0 0 25px;
+  color: #66d9ff;
+  font-size: 1.8rem;
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.25);
+}
+
+.project-slide img {
+  width: 100%;
+  max-width: 760px;
+  height: 430px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 25px;
+
+  border: 1px solid rgba(0, 174, 255, 0.3);
+  border-radius: 8px;
+
+  box-shadow: 0 0 25px rgba(0, 140, 255, 0.12);
+}
+
+.project-link,
+.other-work-link {
+  display: inline-block;
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.project-link:hover,
+.other-work-link:hover {
+  color: #66d9ff;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+}
+
+.other-work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.other-work h1 {
+  margin-bottom: 20px;
+}
+
+
+/* ---- Projects Mobile ---- */
+
+@media (max-width: 600px) {
+
+  .projects {
+    min-height: 500px;
+  }
+
+  .project-slide img {
+    height: 320px;
+  }
+
+  .project-slide h1 {
+    font-size: 1.5rem;
+  }
+
+}
