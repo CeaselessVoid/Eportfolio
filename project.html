@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects — Marshall Ngari</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <span class="site-name">Marshall Ngari</span>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="cv.html">CV</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+
+<main>
+
+  <section class="projects">
+
+    <!-- Project 1 -->
+    <div class="project-slide active">
+      <h1>Ice Buoy Frame Design</h1>
+
+      <img src="images/ICE-BUOY-IMAGE.png"
+           alt="Ice Buoy Frame Design">
+
+      <a href="ice-buoy.html" class="project-link">
+        View Project →
+      </a>
+    </div>
+
+
+    <!-- Project 2 -->
+    <div class="project-slide">
+      <h1>Micromouse</h1>
+
+      <img src="images/MICROMOUSE-IMAGE.png"
+           alt="Micromouse">
+
+      <a href="micromouse.html" class="project-link">
+        View Project →
+      </a>
+    </div>
+
+
+    <!-- Project 3 -->
+    <div class="project-slide">
+      <h1>Induction Motor Fault Detection</h1>
+
+      <img src="images/INDUCTOR-IMAGE.png"
+           alt="Induction Motor Fault Detection">
+
+      <a href="induction-motor.html" class="project-link">
+        View Project →
+      </a>
+    </div>
+
+
+    <!-- Final slide -->
+    <div class="project-slide other-work">
+      <h1>Other Work</h1>
+
+      <a href="other-projects.html" class="other-work-link">
+        View Other Projects →
+      </a>
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+let currentSlide = 0;
+
+const slides = document.querySelectorAll(".project-slide");
+const slideDuration = 30000;
+const fadeDuration = 2000;
+
+function showNextSlide() {
+
+  const current = slides[currentSlide];
+
+  current.classList.remove("active");
+  current.classList.add("fade-out");
+
+  setTimeout(() => {
+
+    current.classList.remove("fade-out");
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+      currentSlide = 0;
+    }
+
+    slides[currentSlide].classList.add("active");
+
+  }, fadeDuration);
+}
+
+
+// Change project every 30 seconds
+setInterval(showNextSlide, slideDuration);
+
+</script>
+
+</body>
+</html>
