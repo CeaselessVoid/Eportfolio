@@ -358,6 +358,23 @@ p {
 .other-work h1 {
   margin-bottom: 20px;
 }
+/* ---- Back to Projects button ---- */
+
+.back-to-projects {
+  display: inline-block;
+  margin-bottom: 30px;
+
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.back-to-projects:hover {
+  color: #66d9ff;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+}
 /* ---- Project navigation arrows ---- */
 
 .project-prev,
