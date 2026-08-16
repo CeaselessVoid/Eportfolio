@@ -593,3 +593,21 @@ p {
   }
 
 }
+/* ---- Project Video ---- */
+
+.project-video {
+  margin-top: 30px;
+}
+
+.project-video h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.project-video video {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 174, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 140, 255, 0.12);
+}
