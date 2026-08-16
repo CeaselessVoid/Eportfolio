@@ -95,37 +95,43 @@
 
 
 <script>
-
 let currentSlide = 0;
+let slideTimer;
+let fadeTimer;
 
 const slides = document.querySelectorAll(".project-slide");
-const slideDuration = 5000;
-const fadeDuration = 2000;
+
+const slideDuration = 15000; // 15 seconds
+const fadeDuration = 2000;   // 2 second fade
+
 
 function showSlide(nextSlide) {
 
+  // Cancel any fade that is currently happening
+  clearTimeout(fadeTimer);
+
   const current = slides[currentSlide];
 
-  current.classList.remove("active");
-  current.classList.add("fade-out");
+  // Immediately remove the current slide
+  current.classList.remove("active", "fade-out");
 
-  setTimeout(() => {
+  // Set the new slide
+  currentSlide = nextSlide;
 
-    current.classList.remove("fade-out");
+  // Handle looping
+  if (currentSlide >= slides.length) {
+    currentSlide = 0;
+  }
 
-    currentSlide = nextSlide;
+  if (currentSlide < 0) {
+    currentSlide = slides.length - 1;
+  }
 
-    if (currentSlide >= slides.length) {
-      currentSlide = 0;
-    }
+  // Show the selected slide
+  slides[currentSlide].classList.add("active");
 
-    if (currentSlide < 0) {
-      currentSlide = slides.length - 1;
-    }
-
-    slides[currentSlide].classList.add("active");
-
-  }, fadeDuration);
+  // Restart the automatic timer
+  restartTimer();
 }
 
 
@@ -145,18 +151,41 @@ function changeProject(direction) {
 }
 
 
-// Automatically change project every 15 seconds
-setInterval(() => {
+function automaticSlide() {
 
-  let nextSlide = currentSlide + 1;
+  const current = slides[currentSlide];
 
-  if (nextSlide >= slides.length) {
-    nextSlide = 0;
-  }
+  // Start fading the current slide
+  current.classList.add("fade-out");
 
-  showSlide(nextSlide);
+  // Wait for the fade to finish
+  fadeTimer = setTimeout(() => {
 
-}, slideDuration);
+    current.classList.remove("active", "fade-out");
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+      currentSlide = 0;
+    }
+
+    slides[currentSlide].classList.add("active");
+
+  }, fadeDuration);
+}
+
+
+function restartTimer() {
+
+  clearInterval(slideTimer);
+
+  slideTimer = setInterval(automaticSlide, slideDuration);
+}
+
+
+// Start the slideshow
+slides[currentSlide].classList.add("active");
+restartTimer();
 
 </script>
 
