@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Helicopter Controller — Marshall Ngari</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <span class="site-name">Marshall Ngari</span>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="cv.html">CV</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+  <section class="project-detail">
+
+    <!-- Image side -->
+    <div class="project-gallery">
+
+      <div class="gallery-slides">
+
+        <img src="images/Simulink_model.png"
+             alt="Helicopter controller"
+             class="gallery-image active">
+
+        <img src="images/Simulink_result.png"
+             alt="Helicopter controller design"
+             class="gallery-image">
+
+        <img src="images/LT_SPICE_Circuit.png"
+             alt="Helicopter control system"
+             class="gallery-image">
+
+        <img src="images/Veroboard_controller.png"
+             alt="Helicopter control system"
+             class="gallery-image">
+
+        <img src="images/Flight_results.png"
+             alt="Helicopter control system"
+             class="gallery-image">
+        
+        <img src="images/Lead_compensator_ideal.png"
+            alt="Helicopter control system"
+            class="gallery-image">
+        
+        <img src="images/Sim_lead_time_measure.png"
+            alt="Helicopter control system"
+            class="gallery-image">
+
+         <img src="images/LT_SPICE_Circuit_lead.png"
+             alt="Helicopter control system"
+             class="gallery-image">
+
+        <img src="images/Veroboard_circuit_lead.png"
+            alt="Helicopter control system"
+            class="gallery-image">
+        
+        <img src="images/demo_run.png"
+            alt="Helicopter control system"
+            class="gallery-image">
+
+      </div>
+
+      <div class="gallery-controls">
+
+        <button onclick="changeImage(-1)">&#10094;</button>
+
+        <div class="gallery-dots">
+          <span onclick="showImage(0)"></span>
+          <span onclick="showImage(1)"></span>
+          <span onclick="showImage(2)"></span>
+          <span onclick="showImage(3)"></span>
+          <span onclick="showImage(4)"></span>
+          <span onclick="showImage(5)"></span>
+          <span onclick="showImage(6)"></span>
+          <span onclick="showImage(7)"></span>
+          <span onclick="showImage(8)"></span>
+          <span onclick="showImage(9)"></span>
+        </div>
+
+        <button onclick="changeImage(1)">&#10095;</button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Text side -->
+    <div class="project-information">
+
+      <h1>Helicopter Controller</h1>
+
+      <p>
+        This project involved the design and construction of a
+        veroboard-based controller using operational amplifiers,
+        resistors, and potentiometers to control a simulated
+        helicopter to a target height. The simulated helicopter
+        was modelled in simulink and a controller designed and test 
+        on the same. The circuit was built on LT Spice before being 
+        actualized on a Veroboard. 
+      </p>
+
+      <p>
+        The system used setpoint and feedback control. Data from
+        the simulation was sent to the physical controller, which
+        was connected to a rig. The controller processed the
+        feedback and returned a control input to drive the
+        simulated helicopter towards the desired height.
+      </p>
+
+      <p>
+        The controller was assessed based on its overshoot from
+        the target setpoint, settling time, rise time, error after
+        settling, and its ability to reject disturbances. 
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+let currentImage = 0;
+
+const images = document.querySelectorAll(".gallery-image");
+const dots = document.querySelectorAll(".gallery-dots span");
+
+let imageTimer;
+
+const displayTime = 6000;
+
+
+function showImage(index) {
+
+  clearTimeout(imageTimer);
+
+  images.forEach(image => {
+    image.classList.remove("active");
+  });
+
+  dots.forEach(dot => {
+    dot.classList.remove("active");
+  });
+
+  currentImage = index;
+
+  if (currentImage >= images.length) {
+    currentImage = 0;
+  }
+
+  if (currentImage < 0) {
+    currentImage = images.length - 1;
+  }
+
+  images[currentImage].classList.add("active");
+  dots[currentImage].classList.add("active");
+
+  restartTimer();
+}
+
+
+function changeImage(direction) {
+
+  let nextImage = currentImage + direction;
+
+  if (nextImage >= images.length) {
+    nextImage = 0;
+  }
+
+  if (nextImage < 0) {
+    nextImage = images.length - 1;
+  }
+
+  showImage(nextImage);
+}
+
+
+function restartTimer() {
+
+  clearInterval(imageTimer);
+
+  imageTimer = setInterval(() => {
+
+    let nextImage = currentImage + 1;
+
+    if (nextImage >= images.length) {
+      nextImage = 0;
+    }
+
+    showImage(nextImage);
+
+  }, displayTime);
+
+}
+
+
+/* Start slideshow */
+
+images[0].classList.add("active");
+dots[0].classList.add("active");
+
+restartTimer();
+
+</script>
+
+</body>
+
+</html>
