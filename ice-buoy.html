@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ice Buoy Frame Design — Marshall Ngari</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <span class="site-name">Marshall Ngari</span>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="cv.html">CV</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+  <section class="project-detail">
+
+    <!-- Image side -->
+    <div class="project-gallery">
+
+      <div class="gallery-slides">
+
+        <img src="images/Lid_profile.png"
+             alt="Ice Buoy SolidWorks design"
+             class="gallery-image active">
+
+        <img src="images/Lid_grooves.png"
+             alt="Ice Buoy SolidWorks model"
+             class="gallery-image">
+
+        <img src="images/hollow_internal.png"
+             alt="Ice Buoy frame design"
+             class="gallery-image">
+
+      </div>
+
+      <div class="gallery-controls">
+        <button onclick="changeImage(-1)">&#10094;</button>
+
+        <div class="gallery-dots">
+          <span onclick="showImage(0)"></span>
+          <span onclick="showImage(1)"></span>
+          <span onclick="showImage(2)"></span>
+        </div>
+
+        <button onclick="changeImage(1)">&#10095;</button>
+      </div>
+
+    </div>
+
+
+    <!-- Text side -->
+    <div class="project-information">
+
+      <h1>Ice Buoy Frame Design</h1>
+
+      <p>
+        This project involved the design of a housing structure for
+        a power subsystem, sensing rig, and processing unit that
+        could be deployed on sea ice to measure wave interaction
+        in the Marginal Ice Zone in the Antarctic.
+      </p>
+
+      <p>
+        The frame was designed such that the system would remain
+        buoyant should the surrounding ice melt, allowing it to
+        continue operation while protecting the internal components.
+        The components would be held in a separate rectangular housing
+        for added protect from water ingress.
+      </p>
+
+      <p>
+        The internal frame would feature insulating foam to protect
+        equipment from harsh cold as well as aid in the buoyancy of the 
+        design. This feature was not implemented in the prototype design.
+        The prototype was 3D printed while the internal housing was laser cut. 
+        A practical model would use an aluminum alloy to be more robust to harsh 
+        weather.     
+       </p>
+
+
+      <h2>Key Features</h2>
+
+      <ul class="project-features">
+
+        <li>
+          <strong>Threaded lid and O-ring:</strong>
+          Provides a watertight seal when the housing is closed.
+        </li>
+
+        <li>
+          <strong>Grooved lid:</strong>
+          Allows easier sealing of the housing.
+        </li>
+
+        <li>
+          <strong>Tapered base:</strong>
+          Facilitates water runoff from the structure.
+        </li>
+
+        <li>
+          <strong>Rounded sides:</strong>
+          Improves the dynamic response of the structure to waves.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+let currentImage = 0;
+
+const images = document.querySelectorAll(".gallery-image");
+const dots = document.querySelectorAll(".gallery-dots span");
+
+let imageTimer;
+
+const displayTime = 6000;
+const fadeTime = 2000;
+
+
+function showImage(index) {
+
+  clearTimeout(imageTimer);
+
+  images.forEach(image => {
+    image.classList.remove("active");
+  });
+
+  dots.forEach(dot => {
+    dot.classList.remove("active");
+  });
+
+  currentImage = index;
+
+  if (currentImage >= images.length) {
+    currentImage = 0;
+  }
+
+  if (currentImage < 0) {
+    currentImage = images.length - 1;
+  }
+
+  images[currentImage].classList.add("active");
+  dots[currentImage].classList.add("active");
+
+  restartTimer();
+}
+
+
+function changeImage(direction) {
+
+  let nextImage = currentImage + direction;
+
+  if (nextImage >= images.length) {
+    nextImage = 0;
+  }
+
+  if (nextImage < 0) {
+    nextImage = images.length - 1;
+  }
+
+  showImage(nextImage);
+}
+
+
+function restartTimer() {
+
+  clearInterval(imageTimer);
+
+  imageTimer = setInterval(() => {
+
+    let nextImage = currentImage + 1;
+
+    if (nextImage >= images.length) {
+      nextImage = 0;
+    }
+
+    showImage(nextImage);
+
+  }, displayTime);
+
+}
+
+
+/* Start slideshow */
+
+images[0].classList.add("active");
+dots[0].classList.add("active");
+
+restartTimer();
+
+</script>
+
+</body>
+
+</html>
