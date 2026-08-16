@@ -26,7 +26,8 @@
 <main>
 
   <section class="projects">
-
+  <button class="project-prev" onclick="changeProject(-1)">&#10094;</button>
+  <button class="project-next" onclick="changeProject(1)">&#10095;</button>
     <!-- Project 1 -->
     <div class="project-slide active">
       <h1>Ice Buoy Frame Design</h1>
@@ -98,10 +99,10 @@
 let currentSlide = 0;
 
 const slides = document.querySelectorAll(".project-slide");
-const slideDuration = 30000;
+const slideDuration = 15000;
 const fadeDuration = 2000;
 
-function showNextSlide() {
+function showSlide(nextSlide) {
 
   const current = slides[currentSlide];
 
@@ -112,10 +113,14 @@ function showNextSlide() {
 
     current.classList.remove("fade-out");
 
-    currentSlide++;
+    currentSlide = nextSlide;
 
     if (currentSlide >= slides.length) {
       currentSlide = 0;
+    }
+
+    if (currentSlide < 0) {
+      currentSlide = slides.length - 1;
     }
 
     slides[currentSlide].classList.add("active");
@@ -124,8 +129,34 @@ function showNextSlide() {
 }
 
 
-// Change project every 30 seconds
-setInterval(showNextSlide, slideDuration);
+function changeProject(direction) {
+
+  let nextSlide = currentSlide + direction;
+
+  if (nextSlide >= slides.length) {
+    nextSlide = 0;
+  }
+
+  if (nextSlide < 0) {
+    nextSlide = slides.length - 1;
+  }
+
+  showSlide(nextSlide);
+}
+
+
+// Automatically change project every 15 seconds
+setInterval(() => {
+
+  let nextSlide = currentSlide + 1;
+
+  if (nextSlide >= slides.length) {
+    nextSlide = 0;
+  }
+
+  showSlide(nextSlide);
+
+}, slideDuration);
 
 </script>
 
