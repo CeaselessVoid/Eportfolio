@@ -162,40 +162,28 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 
   event.preventDefault();
 
-
-  /* Get information entered by the visitor */
-
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const subject = document.getElementById("subject").value;
   const message = document.getElementById("message").value;
 
+  // Use the entered subject, or a default if left empty
+  const emailSubject = subject || "Portfolio Enquiry";
 
-  /* Use a default subject if one wasn't entered */
-
-  const emailSubject =
-    subject || "Portfolio Enquiry";
-
-
-  /* Construct the email body */
-
+  // Construct the email body
   const emailBody =
     "Name: " + name + "\n" +
     "Email: " + email + "\n\n" +
     message;
 
-
-  /* Create the email link */
-
+  // Create the email link
   const mailto =
     "mailto:njerumarshall@gmail.com" +
     "?subject=" + encodeURIComponent(emailSubject) +
     "&body=" + encodeURIComponent(emailBody);
 
-
-  /* Open the visitor's email application */
-
-  window.location.href = mailto;
+  // Open the email application in a new tab/window
+  window.open(mailto, "_blank");
 
 });
 
