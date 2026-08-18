@@ -165,58 +165,93 @@
 
 <script>
 
-let slideIndex = 1;
+let currentImage = 0;
 
-showSlide(slideIndex);
+const images = document.querySelectorAll(".hobby-slideshow img");
+const dots = document.querySelectorAll(".slide-dots span");
 
+let imageTimer;
 
-function changeSlide(n) {
-
-  showSlide(slideIndex += n);
-
-}
+const displayTime = 5000;
 
 
-function currentSlide(n) {
+function showImage(index) {
 
-  showSlide(slideIndex = n);
+  clearTimeout(imageTimer);
 
-}
-
-
-function showSlide(n) {
-
-  const slides =
-    document.querySelectorAll(".hobby-slideshow img");
-
-  const dots =
-    document.querySelectorAll(".slide-dots span");
-
-
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-
-
-  slides.forEach(slide => {
-    slide.classList.remove("active");
+  images.forEach(image => {
+    image.classList.remove("active");
   });
-
 
   dots.forEach(dot => {
     dot.classList.remove("active");
   });
 
+  currentImage = index;
 
-  slides[slideIndex - 1].classList.add("active");
+  if (currentImage >= images.length) {
+    currentImage = 0;
+  }
 
-  dots[slideIndex - 1].classList.add("active");
+  if (currentImage < 0) {
+    currentImage = images.length - 1;
+  }
+
+  images[currentImage].classList.add("active");
+  dots[currentImage].classList.add("active");
+
+  restartTimer();
+}
+
+
+function changeSlide(direction) {
+
+  let nextImage = currentImage + direction;
+
+  if (nextImage >= images.length) {
+    nextImage = 0;
+  }
+
+  if (nextImage < 0) {
+    nextImage = images.length - 1;
+  }
+
+  showImage(nextImage);
+}
+
+
+function currentSlide(index) {
+
+  showImage(index - 1);
 
 }
+
+
+function restartTimer() {
+
+  clearInterval(imageTimer);
+
+  imageTimer = setInterval(() => {
+
+    let nextImage = currentImage + 1;
+
+    if (nextImage >= images.length) {
+      nextImage = 0;
+    }
+
+    showImage(nextImage);
+
+  }, displayTime);
+
+}
+
+
+/* Start slideshow */
+
+images[0].classList.add("active");
+dots[0].classList.add("active");
+
+restartTimer();
 
 </script>
 
