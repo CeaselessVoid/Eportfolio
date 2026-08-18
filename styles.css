@@ -908,7 +908,13 @@ p {
   fill: #66d9ff;
   transition: 0.3s ease;
 }
-
+.ice-buoy-page {
+  background-image: url("images/MIZ.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
 .linkedin-logo:hover svg {
   fill: #00bfff;
   filter: drop-shadow(0 0 8px rgba(0, 191, 255, 0.6));
