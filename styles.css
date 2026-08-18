@@ -896,3 +896,20 @@ p {
   }
 
 }
+.linkedin-logo {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+.linkedin-logo svg {
+  width: 100%;
+  height: 100%;
+  fill: #66d9ff;
+  transition: 0.3s ease;
+}
+
+.linkedin-logo:hover svg {
+  fill: #00bfff;
+  filter: drop-shadow(0 0 8px rgba(0, 191, 255, 0.6));
+}
