@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact — Marshall Ngari</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <span class="site-name">Marshall Ngari</span>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="cv.html">CV</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+
+</header>
+
+
+<main class="contact-page">
+
+  <section class="contact-hero">
+
+    <!-- Large CONTACT title -->
+    <div class="contact-title">
+      <h1>CONTACT</h1>
+    </div>
+
+
+    <!-- Contact form -->
+    <div class="contact-form-area">
+
+      <p class="contact-intro">
+        Looking forward to hearing from you.
+      </p>
+
+
+      <form class="contact-form" id="contactForm">
+
+        <div class="form-fields">
+
+          <!-- Left side -->
+          <div class="form-left">
+
+            <input
+              type="text"
+              id="name"
+              placeholder="Name *"
+              required
+            >
+
+            <input
+              type="email"
+              id="email"
+              placeholder="Email *"
+              required
+            >
+
+            <input
+              type="text"
+              id="subject"
+              placeholder="Subject"
+            >
+
+          </div>
+
+
+          <!-- Message -->
+          <div class="form-right">
+
+            <textarea
+              id="message"
+              placeholder="Message *"
+              required
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <button type="submit">
+          OPEN EMAIL
+        </button>
+
+      </form>
+
+
+      <!-- Other contact methods -->
+      <div class="contact-links">
+
+        <a href="mailto:YOUR-EMAIL@example.com">
+          Email
+        </a>
+
+        <a href="tel:+27XXXXXXXXX">
+          Phone
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          href="https://github.com/YOUR-GITHUB"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  /* Get information entered by the visitor */
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+
+  /* Use a default subject if one wasn't entered */
+
+  const emailSubject =
+    subject || "Portfolio Enquiry";
+
+
+  /* Construct the email body */
+
+  const emailBody =
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n\n" +
+    message;
+
+
+  /* Create the email link */
+
+  const mailto =
+    "mailto:njerumarshall@gmail.com" +
+    "?subject=" + encodeURIComponent(emailSubject) +
+    "&body=" + encodeURIComponent(emailBody);
+
+
+  /* Open the visitor's email application */
+
+  window.location.href = mailto;
+
+});
+
+</script>
+
+</body>
+
+</html>
