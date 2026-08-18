@@ -818,3 +818,81 @@ p {
   }
 
 }
+/* =====================================================
+   CONTACT INFORMATION
+   ===================================================== */
+
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+
+  margin-bottom: 45px;
+}
+
+.contact-info-item {
+  padding: 15px 18px;
+
+  border-left: 2px solid #00bfff;
+
+  background: rgba(2, 8, 18, 0.35);
+}
+
+.contact-info-item h2 {
+  margin: 0 0 5px;
+
+  border: none;
+  padding: 0;
+
+  font-size: 0.9rem;
+
+  color: #66d9ff;
+}
+
+.contact-info-item a,
+.contact-info-item p {
+  margin: 0;
+
+  color: #d4e5ec;
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+}
+
+.contact-info-item a:hover {
+  color: #00bfff;
+}
+
+
+/* =====================================================
+   CONTACT FORM CONTAINER
+   ===================================================== */
+
+.contact-form-container {
+  margin-top: 10px;
+}
+
+.contact-form-container > h2 {
+  color: #66d9ff;
+
+  border: none;
+  padding: 0;
+
+  font-size: 1.2rem;
+
+  margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   CONTACT PAGE MOBILE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+}
