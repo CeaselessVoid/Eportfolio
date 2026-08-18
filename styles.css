@@ -926,8 +926,8 @@ p {
 .ice-buoy-page {
   background-image:
     linear-gradient(
-      rgba(0, 10, 20, 0.8),
-      rgba(0, 10, 20, 0.8)
+      rgba(0, 10, 20, 0.77),
+      rgba(0, 10, 20, 0.77)
     ),
     url("images/MIZ.png");
 
@@ -939,8 +939,8 @@ p {
 .micromouse-page {
   background-image:
     linear-gradient(
-      rgba(0, 10, 20, 0.8),
-      rgba(0, 10, 20, 0.8)
+      rgba(0, 10, 20, 0.77),
+      rgba(0, 10, 20, 0.77)
     ),
     url("images/Maze.png");
 
