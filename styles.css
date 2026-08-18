@@ -1286,9 +1286,9 @@ p {
   }
 
 
-  /* =================================================
-     ABOUT PAGE
-     ================================================= */
+@media (max-width: 600px) {
+
+  /* ---- About page ---- */
 
   .about-page {
     padding: 35px 20px 60px;
@@ -1300,18 +1300,9 @@ p {
     gap: 30px;
   }
 
-  /*
-     Put the text before the large image on mobile.
-     This makes the page easier to read immediately.
-  */
-
-  .about-content {
-    order: 1;
-    max-width: 100%;
-  }
-
+  /* Image first */
   .about-image {
-    order: 2;
+    order: 1;
     width: 100%;
     max-width: 280px;
     margin: 0 auto;
@@ -1320,6 +1311,12 @@ p {
   .about-image img {
     width: 100%;
     height: auto;
+  }
+
+  /* Text second */
+  .about-content {
+    order: 2;
+    max-width: 100%;
   }
 
   .about-text h1 {
@@ -1337,9 +1334,7 @@ p {
     margin-top: 35px;
   }
 
-
-  /* ---- Hobby slideshow ---- */
-
+  /* Hobby slideshow */
   .hobby-slideshow {
     width: 100%;
     height: 280px;
@@ -1351,19 +1346,7 @@ p {
     height: 100%;
     object-fit: contain;
   }
-
-  .hobby-slideshow button {
-    font-size: 18px;
-    padding: 8px 12px;
-  }
-
-  .hobby-slideshow .prev {
-    left: 8px;
-  }
-
-  .hobby-slideshow .next {
-    right: 8px;
-  }
+}
 
 
   /* ---- Page navigation buttons ---- */
