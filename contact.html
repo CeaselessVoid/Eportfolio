@@ -36,7 +36,6 @@
     </div>
 
 
-    <!-- Contact form -->
     <div class="contact-form-area">
 
       <p class="contact-intro">
@@ -44,83 +43,103 @@
       </p>
 
 
-      <form class="contact-form" id="contactForm">
+      <!-- Contact information -->
 
-        <div class="form-fields">
+      <div class="contact-info">
 
-          <!-- Left side -->
-          <div class="form-left">
-
-            <input
-              type="text"
-              id="name"
-              placeholder="Name *"
-              required
-            >
-
-            <input
-              type="email"
-              id="email"
-              placeholder="Email *"
-              required
-            >
-
-            <input
-              type="text"
-              id="subject"
-              placeholder="Subject"
-            >
-
-          </div>
-
-
-          <!-- Message -->
-          <div class="form-right">
-
-            <textarea
-              id="message"
-              placeholder="Message *"
-              required
-            ></textarea>
-
-          </div>
-
+        <div class="contact-info-item">
+          <h2>Email</h2>
+          <a href="mailto:njerumarshall@gmail.com">
+            njerumarshall@gmail.com
+          </a>
         </div>
 
 
-        <button type="submit">
-          OPEN EMAIL
-        </button>
+        <div class="contact-info-item">
+          <h2>Phone</h2>
+          <a href="tel:+25470XXXX170">
+            +25470XXXX170
+          </a>
+        </div>
 
-      </form>
+
+        <div class="contact-info-item">
+          <h2>Location</h2>
+          <p>Nairobi, Kenya</p>
+        </div>
 
 
-      <!-- Other contact methods -->
-      <div class="contact-links">
+        <div class="contact-info-item">
+          <h2>LinkedIn</h2>
+          <a
+            href="https://www.linkedin.com/in/marshall-njeru-61b944265/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn Profile →
+          </a>
+        </div>
 
-        <a href="mailto:YOUR-EMAIL@example.com">
-          Email
-        </a>
+      </div>
 
-        <a href="tel:+27XXXXXXXXX">
-          Phone
-        </a>
 
-        <a
-          href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
+      <!-- Email form -->
 
-        <a
-          href="https://github.com/YOUR-GITHUB"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
+      <div class="contact-form-container">
+
+        <h2>Send Me a Message</h2>
+
+        <form class="contact-form" id="contactForm">
+
+          <div class="form-fields">
+
+            <!-- Left side -->
+
+            <div class="form-left">
+
+              <input
+                type="text"
+                id="name"
+                placeholder="Name *"
+                required
+              >
+
+              <input
+                type="email"
+                id="email"
+                placeholder="Email *"
+                required
+              >
+
+              <input
+                type="text"
+                id="subject"
+                placeholder="Subject"
+              >
+
+            </div>
+
+
+            <!-- Message -->
+
+            <div class="form-right">
+
+              <textarea
+                id="message"
+                placeholder="Message *"
+                required
+              ></textarea>
+
+            </div>
+
+          </div>
+
+
+          <button type="submit">
+            OPEN EMAIL
+          </button>
+
+        </form>
 
       </div>
 
@@ -136,6 +155,7 @@
 document.getElementById("contactForm").addEventListener("submit", function(event) {
 
   event.preventDefault();
+
 
   /* Get information entered by the visitor */
 
@@ -162,7 +182,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
   /* Create the email link */
 
   const mailto =
-    "mailto:YOUR-EMAIL@example.com" +
+    "mailto:njerumarshall@gmail.com" +
     "?subject=" + encodeURIComponent(emailSubject) +
     "&body=" + encodeURIComponent(emailBody);
 
