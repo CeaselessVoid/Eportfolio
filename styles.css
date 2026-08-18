@@ -916,8 +916,8 @@ p {
 .ice-buoy-page {
   background-image:
     linear-gradient(
-      rgba(0, 10, 20, 0.55),
-      rgba(0, 10, 20, 0.55)
+      rgba(0, 10, 20, 0.7),
+      rgba(0, 10, 20, 0.7)
     ),
     url("images/MIZ.png");
 
