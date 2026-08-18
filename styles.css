@@ -1194,3 +1194,279 @@ p {
   box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
   transform: translateY(-2px);
 }
+/* =====================================================
+   MOBILE IMPROVEMENTS
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  /* ---- General ---- */
+
+  main {
+    padding: 30px 20px 60px;
+  }
+
+  /* ---- Header ---- */
+
+  .site-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .site-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 15px;
+  }
+
+  .site-header nav a {
+    margin-left: 0;
+    font-size: 0.9rem;
+  }
+
+
+  /* =================================================
+     HOME PAGE
+     ================================================= */
+
+  .home-page {
+    min-height: auto;
+    padding: 40px 20px 60px;
+  }
+
+  .home-hero {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  /* Make the home image smaller */
+
+  .home-photo {
+    flex: none;
+    width: 210px;
+    max-width: 70%;
+  }
+
+  .home-photo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .home-introduction {
+    max-width: 100%;
+  }
+
+  .welcome {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+  }
+
+  .home-introduction h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  .status {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .home-contact {
+    margin-top: 40px;
+    gap: 25px;
+  }
+
+
+  /* =================================================
+     ABOUT PAGE
+     ================================================= */
+
+  .about-page {
+    padding: 35px 20px 60px;
+  }
+
+  .about-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  /*
+     Put the text before the large image on mobile.
+     This makes the page easier to read immediately.
+  */
+
+  .about-content {
+    order: 1;
+    max-width: 100%;
+  }
+
+  .about-image {
+    order: 2;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-text h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .about-text p,
+  .hobbies p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .hobbies {
+    margin-top: 35px;
+  }
+
+
+  /* ---- Hobby slideshow ---- */
+
+  .hobby-slideshow {
+    width: 100%;
+    height: 280px;
+    margin-top: 20px;
+  }
+
+  .hobby-slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hobby-slideshow button {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+
+  .hobby-slideshow .prev {
+    left: 8px;
+  }
+
+  .hobby-slideshow .next {
+    right: 8px;
+  }
+
+
+  /* ---- Page navigation buttons ---- */
+
+  .project-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .project-button {
+    text-align: center;
+    padding: 10px 15px;
+  }
+
+
+  /* =================================================
+     CV
+     ================================================= */
+
+  .cv-header {
+    margin-bottom: 40px;
+  }
+
+  .cv-header h1 {
+    font-size: 2rem;
+  }
+
+  .cv-entry {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 20px 0;
+  }
+
+  .cv-date {
+    font-size: 0.9rem;
+  }
+
+
+  /* =================================================
+     PROJECTS
+     ================================================= */
+
+  .projects {
+    min-height: 500px;
+  }
+
+  .project-slide img {
+    height: 280px;
+  }
+
+  .project-slide h1 {
+    font-size: 1.4rem;
+  }
+
+
+  /* =================================================
+     INDIVIDUAL PROJECT PAGES
+     ================================================= */
+
+  .project-detail {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .gallery-slides {
+    height: 300px;
+  }
+
+  .project-information {
+    padding: 0;
+  }
+
+  .project-information h1 {
+    font-size: 1.8rem;
+  }
+
+
+  /* =================================================
+     OTHER PROJECTS
+     ================================================= */
+
+  .audio-project {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .other-gallery {
+    height: 280px;
+  }
+
+  .pcb-gallery {
+    height: 300px;
+  }
+
+
+  /* =================================================
+     CONTACT
+     ================================================= */
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+}
