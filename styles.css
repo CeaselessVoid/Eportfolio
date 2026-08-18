@@ -926,3 +926,16 @@ p {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+.micromouse-page {
+  background-image:
+    linear-gradient(
+      rgba(0, 10, 20, 0.55),
+      rgba(0, 10, 20, 0.55)
+    ),
+    url("images/Maze.png");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
