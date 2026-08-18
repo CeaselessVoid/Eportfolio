@@ -1036,3 +1036,125 @@ p {
 .home-contact-icon:hover svg {
   transform: scale(1.15);
 }
+/* =========================
+   ABOUT PAGE
+   ========================= */
+
+.about-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+
+.about-content {
+  max-width: 700px;
+}
+
+
+.about-text h1 {
+  margin-top: 0;
+}
+
+
+.about-text p,
+.hobbies p {
+  line-height: 1.7;
+}
+
+
+.hobbies {
+  margin-top: 45px;
+}
+
+
+.hobbies h2 {
+  margin-bottom: 15px;
+}
+
+
+/* Hobby slideshow */
+
+.hobby-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 30px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+
+.hobby-slideshow img {
+  width: 100%;
+  display: none;
+}
+
+
+.hobby-slideshow img.active {
+  display: block;
+}
+
+
+.hobby-slideshow button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+
+.hobby-slideshow .prev {
+  left: 10px;
+}
+
+
+.hobby-slideshow .next {
+  right: 10px;
+}
+
+
+.slide-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+
+.slide-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+
+.slide-dots span.active {
+  opacity: 1;
+}
