@@ -167,8 +167,8 @@ document.getElementById("contactForm").addEventListener("submit", function(event
   const subject = document.getElementById("subject").value;
   const message = document.getElementById("message").value;
 
-  // Use the entered subject, or a default if left empty
-  const emailSubject = subject || "Portfolio Enquiry";
+  // Use exactly what the user entered as the subject
+  const emailSubject = subject;
 
   // Construct the email body
   const emailBody =
@@ -176,14 +176,22 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     "Email: " + email + "\n\n" +
     message;
 
-  // Create the email link
+  // Create the mailto link
   const mailto =
     "mailto:njerumarshall@gmail.com" +
     "?subject=" + encodeURIComponent(emailSubject) +
     "&body=" + encodeURIComponent(emailBody);
 
-  // Open the email application in a new tab/window
-  window.open(mailto, "_blank");
+  // Create a temporary link
+  const link = document.createElement("a");
+  link.href = mailto;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+
+  // Open the email in a new tab/window
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 
 });
 
