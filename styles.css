@@ -104,28 +104,38 @@ p {
   margin: 0 0 16px;
 }
 
-/* ---- Hobby slideshow ---- */
+/* Hobby slideshow */
+
 .hobby-slideshow {
   position: relative;
   width: 100%;
-  height: 400px;
-  margin-top: 24px;
+  max-width: 600px;
+  height: 350px;
+  margin-top: 30px;
   overflow: hidden;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 174, 255, 0.3);
+  border-radius: 8px;
   background: #020812;
+  border: 1px solid rgba(0, 174, 255, 0.3);
   box-shadow: 0 0 25px rgba(0, 140, 255, 0.1);
 }
 
+
 .hobby-slideshow img {
-  display: none;
+  position: absolute;
+  inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: contain;
+
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
+
 .hobby-slideshow img.active {
-  display: block;
+  opacity: 1;
 }
 
 /* ---- Slideshow buttons ---- */
